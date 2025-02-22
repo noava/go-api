@@ -4,7 +4,7 @@ This API is a project for me to learn to create a RESTful API using Golang. Wher
 
 ### Usage
 
-http://localhost:5006
+http://localhost:5006 or test on my hosted API https://go-api.noava.dev
 
 Using these endpoints:
 - GET /hello
@@ -47,7 +47,5 @@ go run main.go
 ```
 
 See the API in action at http://localhost:5006/hello and http://localhost:5006/bye?name={name}
-Im using postman to test the API.
 
-
-
+You can use postman or the browser to test the API.
