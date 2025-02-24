@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/noava/go-api/db"
+	"github.com/noava/go-api/gardening"
 	"github.com/noava/go-api/pollen"
 )
 
@@ -30,11 +32,15 @@ func rateLimitMiddleware(next http.Handler) http.Handler {
 }
 
 func main() {
+	db.InitDB()
+	db.SeedDB()
+
 	// Create a router using mux
 	mux := http.NewServeMux()
 
 	mux.Handle("/severity", rateLimitMiddleware(http.HandlerFunc(pollen.SeverityHandler)))
 	mux.Handle("/pollen-info", rateLimitMiddleware(http.HandlerFunc(pollen.PollenInfoHandler)))
+	mux.Handle("/when-to-plant", rateLimitMiddleware(http.HandlerFunc(gardening.WhenToPlantHandler)))
 
 	log.Print("Listening...")
 

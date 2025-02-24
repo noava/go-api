@@ -19,6 +19,9 @@ WORKDIR /app
 # Copy binary from builder
 COPY --from=builder /go-api .
 
+# Copy database directory
+COPY --from=builder /app/db ./db
+
 # Expose the port
 EXPOSE 5006
 

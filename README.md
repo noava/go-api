@@ -10,6 +10,7 @@ http://localhost:5006 or test on my hosted API https://go-api.noava.dev
 Using these endpoints:
 - `GET /severity?lat={lat}&lon={lon}&types={types}`
 - `GET /pollen-info`
+- `GET /when-to-plant?date={format: 01-Jan}`
 
 
 ### Pollen Severity
@@ -49,6 +50,27 @@ This shows info about pollen:
 - Who is at risk
 - Management tips
 - Seasonal pollen
+
+### When to Plant
+*Shows the best plant to plant based on the day of the year*
+
+`/when-to-plant?date={format: 01-Jan}` Replace `{date}` with the date you want to get the when to plant data for, with the format: 01-Jan. Or dont add the query variable and get today's date. `/when-to-plant` This date gets turned into day of the year. For example 01-Jan is 1 and 31-Dec is 365. To get used in the SQL query.
+
+This uses an sqlite database to store the plant data. Where i get all the plants that are between the start and end day of the date you put in. Even if the start day is before the end day of the year. For example between November and March.
+
+This function returns:
+```json
+[
+  {
+    "Name": "Plant Name",
+    "StartDay": 1,
+    "EndDay": 31,
+    "Type": "Vegetable"
+  },
+]
+```
+
+*Disclaimer*: The planting dates provided are approximate guidelines and may vary based on your specific climate zone and local weather conditions.
 
 ---
 
