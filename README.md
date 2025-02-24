@@ -9,6 +9,7 @@ http://localhost:5006 or test on my hosted API https://go-api.noava.dev
 
 Using these endpoints:
 - `GET /severity?lat={lat}&lon={lon}&types={types}`
+- `GET /pollen-info`
 
 
 ### Pollen Severity
@@ -35,6 +36,19 @@ This function returns:
   }
 }
 ```
+
+### Pollen Info
+*Shows info about pollen*
+
+`/pollen-info`
+
+This shows info about pollen:
+- What is pollen
+- What is a pollen allergy 
+- Symptoms
+- Who is at risk
+- Management tips
+- Seasonal pollen
 
 ---
 

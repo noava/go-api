@@ -34,6 +34,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.Handle("/severity", rateLimitMiddleware(http.HandlerFunc(pollen.SeverityHandler)))
+	mux.Handle("/pollen-info", rateLimitMiddleware(http.HandlerFunc(pollen.PollenInfoHandler)))
 
 	log.Print("Listening...")
 
