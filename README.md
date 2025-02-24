@@ -36,14 +36,6 @@ This function returns:
 }
 ```
 
-### Bye
-/bye?name={name} takes a name as a query variable. Where you can replace {name} with your name. Where no name is provided, the default name is "World".
-
-This function returns:
-```
-"Bye, {name}!"
-```
-
 ---
 
 ## Rate Limiter
