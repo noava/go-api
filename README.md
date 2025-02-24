@@ -8,15 +8,32 @@ This API is a project for me to learn to create a RESTful API using Golang. Wher
 http://localhost:5006 or test on my hosted API https://go-api.noava.dev
 
 Using these endpoints:
-- GET /hello
-- GET /bye?name={name}
+- `GET /severity?lat={lat}&lon={lon}&types={types}`
 
-### Hello
-/hello
+
+### Pollen Severity
+*Shows the severity of the pollen*
+
+`/severity?lat={lat}&lon={lon}&types={types}` Replace {lat} with the latitude, {lon} with the longitude, and {types} with the types of pollen you want to get. Seperated by comma. The types of pollen are:
+- alder
+- birch
+- grass
+- mugwort
+- olive
+- ragweed
+
+This uses the API from [open-meteo.com](https://open-meteo.com/) to get the pollen data. Where i take the data and return it in a more readable format. Like how severe the pollen is and a message about how severe the pollen is.
 
 This function returns:
-```
-"Hello, World!"
+```json
+{
+  "summary": {
+    "{type}_pollen": "{severity}"
+  },
+  "interpretation": {
+    "{type}": "{Message about how severe the pollen is.}"
+  }
+}
 ```
 
 ### Bye
@@ -55,3 +72,4 @@ go run main.go
 ```
 
 You can use postman or the browser to test the API.
+*Transparency*: Im logging the requests to see what users are requesting.

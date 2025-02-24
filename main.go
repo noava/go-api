@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/noava/go-api/pollen"
 )
 
 const rateLimit = time.Second / 10 // per second
@@ -31,19 +33,7 @@ func main() {
 	// Create a router using mux
 	mux := http.NewServeMux()
 
-	// GET /hello
-	mux.Handle("GET /hello", rateLimitMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, World!")
-	})))
-
-	// GET /bye?name={name}
-	mux.Handle("GET /bye", rateLimitMiddleware(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		name := r.URL.Query().Get("name")
-		if name == "" {
-			name = "World"
-		}
-		fmt.Fprintf(w, "Bye, %s!", name)
-	})))
+	mux.Handle("/severity", rateLimitMiddleware(http.HandlerFunc(pollen.SeverityHandler)))
 
 	log.Print("Listening...")
 
