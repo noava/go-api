@@ -1,8 +1,9 @@
 # Go API
 This API is a project for me to learn to create a RESTful API using Golang. Where my main goal is to learn GO and also create a simple API that can be used in my app project.
 
+---
 
-### Usage
+## Usage
 
 http://localhost:5006 or test on my hosted API https://go-api.noava.dev
 
@@ -26,7 +27,14 @@ This function returns:
 "Bye, {name}!"
 ```
 
-### Prerequisites
+---
+
+## Rate Limiter
+This API has a rate limiter that limits the number of requests to 10 requests per second. Where if the rate limit is exceeded, it will return a 429 status code with the message "Rate limit exceeded".
+
+---
+
+## Prerequisites
 
 - Docker or run in terminal
 - Go
@@ -45,7 +53,5 @@ docker run -p 5006:5006 go-api
 ```terminal
 go run main.go
 ```
-
-See the API in action at http://localhost:5006/hello and http://localhost:5006/bye?name={name}
 
 You can use postman or the browser to test the API.
