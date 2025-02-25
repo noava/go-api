@@ -99,5 +99,5 @@ docker run -p 5006:5006 go-api
 go run main.go
 ```
 
-You can use postman or the browser to test the API.
+You can use postman or the browser to test the API.  
 *Transparency*: Im logging the requests to see what users are requesting.

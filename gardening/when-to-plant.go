@@ -34,7 +34,7 @@ func WhenToPlantHandler(w http.ResponseWriter, r *http.Request) {
 	date := r.URL.Query().Get("date")
 
 	if date == "" {
-		date = time.Now().Format("01-Jan")
+		date = time.Now().Format("02-Jan")
 	}
 	
 	// Convert date string to day of year uint
